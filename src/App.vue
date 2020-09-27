@@ -1,32 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
+    <Tabbar>
+      <Tabbaritem link="/home">
+        <img slot="tabbarico" src="../src/assets/img/home.svg" alt="" />
+        <img slot="tabbarico-active" src="../src/assets/img/home-active.svg" alt="" />
+        <div  slot="tabbartext">首页</div>
+      </Tabbaritem>
+      <Tabbaritem link="/list">
+        <img slot="tabbarico" src="../src/assets/img/list.svg" alt="" />
+        <img slot="tabbarico-active"  src="../src/assets/img/list-active.svg" alt="" />
+        <div slot="tabbartext">产品</div>
+      </Tabbaritem>
+      <Tabbaritem link="/cart">
+        <img slot="tabbarico" src="../src/assets/img/cart.svg" alt="" />
+        <img slot="tabbarico-active" src="../src/assets/img/cart-active.svg" alt="" />
+        <div  slot="tabbartext">购物车</div>
+      </Tabbaritem>
+      <Tabbaritem link="/profile">
+        <img slot="tabbarico" src="../src/assets/img/profile.svg" alt="" />
+        <img slot="tabbarico-active" src="../src/assets/img/profile-active.svg" alt="" />
+        <div  slot="tabbartext">我的</div>
+      </Tabbaritem>
+    </Tabbar>
   </div>
 </template>
-
+<script>
+import Tabbar from './components/tabbar/Tabbar';
+import Tabbaritem from './components/tabbar/Tarbar-item';
+export default {
+  name: 'App',
+  components: {
+    Tabbar,
+    Tabbaritem,
+  },
+};
+</script>
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import url('../src/assets/css/base.css');
 </style>
